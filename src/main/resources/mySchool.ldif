@@ -1,0 +1,85 @@
+# Defines ou=People within the objectClass organizationalUnit
+dn: ou=People, dc=myschool, dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: People
+
+# Defines ou=groups within the objectClass organizationalUnit
+dn: ou=groups, dc=myschool, dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: groups
+
+# Defines cn=User within the objectClass groupOfUniqueNames
+dn: cn=User, ou=groups, dc=myschool, dc=com
+objectClass: groupOfUniqueNames
+objectClass: top
+ou: groups
+cn: User
+uniqueMember: cn=Emmanuel Akolly, ou=People, dc=myschool, dc=com
+uniqueMember: cn=Christina Akolly, ou=People, dc=myschool, dc=com
+uniqueMember: cn=Lydia Akolly, ou=People, dc=myschool, dc=com
+uniqueMember: cn=Alexander Akolly, ou=People, dc=myschool, dc=com
+uniqueMember: cn=Claire Akolly, ou=People, dc=myschool, dc=com
+
+# Defines cn=Admin within the objectClass groupOfUniqueNames
+dn: cn=Admin, ou=groups, dc=myschool, dc=com
+objectClass: groupOfUniqueNames
+objectClass: top
+ou: groups
+cn: Admin
+uniqueMember: cn=Emmanuel Akolly, ou=People, dc=myschool, dc=com
+uniqueMember: cn=Christina Akolly, ou=People, dc=myschool, dc=com
+
+dn: uid=ekakoll, ou=People, dc=myschool, dc=com
+objectClass: inetOrgPerson
+ou: People
+displayName: AKEEM
+uid: ekakoll
+initials: EA
+cn: Emmanuel Akolly
+sn: Akolly
+userPassword: slones
+
+dn: uid=chris, ou=People, dc=myschool, dc=com
+objectClass: inetOrgPerson
+ou: People
+displayName: Chris
+uid: chris
+initials: CA
+sn: Akolly
+cn: Christina Akolly
+userPassword: chrisPass
+
+dn: uid=lydia, ou=People, dc=myschool, dc=com
+objectClass: inetOrgPerson
+ou: People
+displayName: Lydia
+uid: lydia
+initials: LA
+sn: Akolly
+cn: Lydia Akolly
+userPassword: lydiaPass
+
+dn: uid=alex, ou=People, dc=myschool, dc=com
+objectClass: inetOrgPerson
+ou: People
+displayName: Alex
+uid: alex
+initials: AA
+sn: Akolly
+cn: Alexander Akolly
+userPassword: alexPass
+
+dn: uid=claire, ou=People, dc=myschool, dc=com
+objectClass: inetOrgPerson
+ou: People
+displayName: Claire
+uid: claire
+initials: CA
+sn: Akolly
+cn: Claire Akolly
+userPassword: clairePass
+
+# Authentication search-base=(ou=People) and search-filter=(uid and userPassword)
+# Authorization search-base=(ou=groups) and search-filter=(uniqueMember)

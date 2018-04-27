@@ -1,0 +1,112 @@
+# Defines ou=People within the objectClass organizationalUnit
+#!RESULT OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2018-04-26T22:58:43.241
+dn: ou=People, dc=myschool, dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: People
+
+# Defines ou=groups within the objectClass organizationalUnit
+#!RESULT OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2018-04-26T22:58:43.249
+dn: ou=groups, dc=myschool, dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: groups
+
+# Defines cn=User within the objectClass groupOfUniqueNames
+#!RESULT OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2018-04-26T22:58:43.257
+dn: cn=User, ou=groups, dc=myschool, dc=com
+objectClass: groupOfUniqueNames
+objectClass: top
+ou: groups
+cn: User
+uniqueMember: cn=Emmanuel Akolly, ou=People, dc=myschool, dc=com
+uniqueMember: cn=Christina Akolly, ou=People, dc=myschool, dc=com
+uniqueMember: cn=Lydia Akolly, ou=People, dc=myschool, dc=com
+uniqueMember: cn=Alexander Akolly, ou=People, dc=myschool, dc=com
+uniqueMember: cn=Claire Akolly, ou=People, dc=myschool, dc=com
+
+# Defines cn=Admin within the objectClass groupOfUniqueNames
+#!RESULT OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2018-04-26T22:58:43.266
+dn: cn=Admin, ou=groups, dc=myschool, dc=com
+objectClass: groupOfUniqueNames
+objectClass: top
+ou: groups
+cn: Admin
+uniqueMember: cn=Emmanuel Akolly, ou=People, dc=myschool, dc=com
+uniqueMember: cn=Christina Akolly, ou=People, dc=myschool, dc=com
+
+#!RESULT OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2018-04-26T22:58:43.275
+dn: uid=ekakoll, ou=People, dc=myschool, dc=com
+objectClass: inetOrgPerson
+ou: People
+displayName: AKEEM
+uid: ekakoll
+initials: EA
+cn: Emmanuel Akolly
+sn: Akolly
+userPassword: slones
+
+#!RESULT OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2018-04-26T22:58:43.284
+dn: uid=chris, ou=People, dc=myschool, dc=com
+objectClass: inetOrgPerson
+ou: People
+displayName: Chris
+uid: chris
+initials: CA
+sn: Akolly
+cn: Christina Akolly
+userPassword: chrisPass
+
+#!RESULT OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2018-04-26T22:58:43.294
+dn: uid=lydia, ou=People, dc=myschool, dc=com
+objectClass: inetOrgPerson
+ou: People
+displayName: Lydia
+uid: lydia
+initials: LA
+sn: Akolly
+cn: Lydia Akolly
+userPassword: lydiaPass
+
+#!RESULT OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2018-04-26T22:58:43.305
+dn: uid=alex, ou=People, dc=myschool, dc=com
+objectClass: inetOrgPerson
+ou: People
+displayName: Alex
+uid: alex
+initials: AA
+sn: Akolly
+cn: Alexander Akolly
+userPassword: alexPass
+
+#!RESULT OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2018-04-26T22:58:43.314
+dn: uid=claire, ou=People, dc=myschool, dc=com
+objectClass: inetOrgPerson
+ou: People
+displayName: Claire
+uid: claire
+initials: CA
+sn: Akolly
+cn: Claire Akolly
+userPassword: clairePass
+
+# Authentication search-base=(ou=People) and search-filter=(uid and userPassword)
+# Authorization search-base=(ou=groups) and search-filter=(uniqueMember)

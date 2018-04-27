@@ -1,0 +1,8 @@
+# Spring LDAP CRUD Operations Binding and Unbinding Examplespring:
+
+  spring:
+    ldap:
+      urls: ldap://localhost:10389
+      username: uid=admin, ou=system
+      password: secret
+      base: dc=myschool, dc=com
